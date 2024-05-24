@@ -1,0 +1,37 @@
+.game-cards-container {
+  display: flex;
+}
+
+.game-card {
+  background-color: white;
+  width: 1200px;
+  height: 250px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #ddd;
+  border: none;
+}
+
+.game-card:last-child { 
+  border-right: none;
+}
+
+.game-image {
+  width: 50%;
+  height: 130px; 
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 10px;
+}
+
+.game-title {
+  font-size: 1rem; 
+  margin-bottom: 3px; 
+}
+
+.game-edition {
+  font-size: 0.8rem;
+  color: #00bfff;
+}

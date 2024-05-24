@@ -1,0 +1,102 @@
+.main-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    background-image: url('../img/rdr2.background.png'); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 0px;
+
+  }
+
+  .main-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); 
+    transition: background-color 0.3s ease;
+  }
+  .main-image {
+    max-width: 60%;
+    height: 100vh;
+    max-height: 60%;
+    margin-right: 30px;
+  }
+  
+  .text-container {
+    width: 50%;
+    text-align: left;
+    color: white;
+  }
+  
+  .main-title {
+    width: 100%;
+    height: auto;
+    max-height: 215px;
+    margin-bottom: 15px;
+  }
+  
+  .main-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-family: Public Sans, sans-serif;
+  }
+  
+  .main-links a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #997a66;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main-links a:hover {
+    background-color: #b38f7a;
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .main-image,
+    .text-container {
+      width: 100%;
+      margin: 0;
+    }
+  
+    .main-image {
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-title {
+      height: 80px;
+    }
+
+    .main-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 50%;
+    }
+  
+    .main-subtitle {
+      font-size: 1rem;
+    }
+    
+  }
+  
