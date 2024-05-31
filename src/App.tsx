@@ -4,11 +4,13 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import MainContent from './components/HomeComponent';
 import GameCard from './components/GameSelectorComponent';
+import Navbar from './components/NavbarComponent';
 import './App.css';
 
 function App() {
   return (
     <div>
+      <Navbar />
       <MainContent /> 
       <GameCard />
     </div>

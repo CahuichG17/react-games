@@ -14,16 +14,12 @@
 
   }
 
-  .main-content::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0); 
-    transition: background-color 0.3s ease;
+  .logo {
+    height: 20px; 
+    margin-right: 5px; 
+    vertical-align: middle;
   }
+ 
   .main-image {
     max-width: 60%;
     height: 100vh;
@@ -51,20 +47,46 @@
     font-family: Public Sans, sans-serif;
   }
   
+  .main-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
   .main-links a {
     display: inline-block;
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #997a66;
+    padding: 12px 24px;
+    margin: 0 10px; 
+    background-color: #e84c3d;
     color: #fff;
     text-decoration: none;
+    border: none;
     border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
     transition: background-color 0.3s ease;
   }
   
   .main-links a:hover {
-    background-color: #b38f7a;
+    background-color: #c0392b;
   }
+  
+  .main-links a:nth-child(2), 
+  .main-links a:nth-child(3),
+  .main-links a:nth-child(4) {
+    background-color: transparent;
+    color: rgb(181, 181, 181);
+    font-weight: normal;
+    text-transform: none;
+  }
+  
+  .main-links a:nth-child(2):hover,
+  .main-links a:nth-child(3):hover,
+  .main-links a:nth-child(4):hover {
+    text-decoration: underline;
+  }
+  
   
   @media (max-width: 768px) {
     .main-content {

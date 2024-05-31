@@ -25,11 +25,11 @@ function GameCards() {
     <div className="game-cards-container">
       {games.map(game => (
         <div className="game-card" key={game.name}>
-          <img src={game.image} alt={game.name} className="game-image" />
           <div className="game-info">
             <h3 className="game-title">{game.name}</h3>
             <p className="game-edition">{game.edition}</p>
           </div>
+          <img src={game.image} alt={game.name} className="game-image" />
         </div>
       ))}
     </div>

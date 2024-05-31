@@ -1,33 +1,78 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import imagenVaquero from "../assets/img/arthur.morgan.png";
-import logoRDR2 from "../assets/img/rdr2.logo.png";
-import "../assets/css/home-component.css";
+import logoRockstar from "../assets/img/rockstarlogo.png";
+import logoSteam from "../assets/img/steamlogo.png";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import"../assets/css/home-component.css";
+
+interface GameData {
+  id: number;
+  name: string;
+  background_image: string;
+  description_raw: string;
+}
 
 function MainContent() {
+  const [gameData, setGameData] = useState<GameData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const apiKey = "f440cc6f53ef461793a6427f1abc6020";
+    const gameSlug = "red-dead-redemption-2";
+
+    axios
+      .get(`https://api.rawg.io/api/games/${gameSlug}?key=${apiKey}`)
+      .then((response) => {
+        setGameData(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("errr:", error);
+        setIsLoading(false);
+      });
+  }, []);
+
   return (
     <div className="main-content">
       <img src={imagenVaquero} alt="Vaquero de RDR2" className="main-image" />
       <div className="text-container">
+        {isLoading ? (
+          <p>Cargando...</p>
+        ) : gameData ? (
+          <>
+            <img
+              src={gameData.background_image}
+              alt={gameData.name}
+              className="main-title"
+            />
+
+{/* <div className="text-container">
         <img
           src={logoRDR2}
           alt="Red Dead Redemption 2"
           className="main-title"
-        />
-        <p className="main-subtitle">
-          {" "}
-          La historia está ambientada en una representación ficticia de los
-          Estados Unidos en 1899 y sigue las hazañas de Arthur Morgan, un
-          forajido y miembro de la pandilla Van der Linde, que debe lidiar con
-          el declive del Salvaje Oeste mientras intenta sobrevivir contra las
-          fuerzas gubernamentales, las pandillas rivales y otros adversarios. El
-          juego se presenta a través de perspectivas de primera y tercera
-          persona, y el jugador puede deambular libremente en su mundo abierto
-          interactivo.
-        </p>
+        /> */}
+
+
+            <p className="main-subtitle">{gameData.description_raw}</p>
+          </>
+        ) : (
+          <p>Error al cargar los datos del juego</p>
+        )}
         <div className="main-links">
-          <a href="#">Comprar</a>
-          <a href="#">Rockstar Social Club</a>
-          <a href="#">Steam</a>
+          <a href="#">
+            <FontAwesomeIcon icon={faShoppingCart} /> Comprar
+          </a>
+          <a href="#">
+            <img src={logoRockstar} alt="Rockstar Social Club" className="logo" />
+            Rockstar Social Club
+          </a>
+          <a href="#">
+            <img src={logoSteam} alt="Steam" className="logo" />
+            Steam
+          </a>
         </div>
       </div>
     </div>
